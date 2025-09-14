@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo Benny - Electronics & Communication Engineering Student</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .hero-section h1 {
+            font-size: 3.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+        
+        .location {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 18px 35px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+        
+        .cta-btn.secondary {
+            background: linear-gradient(135deg, #6c757d, #495057);
+        }
+        
+        .cta-btn.secondary:hover {
+            box-shadow: 0 15px 35px rgba(108, 117, 125, 0.4);
+        }
+        
+        /* Section Titles */
+        .section-title {
+            color: #2c3e50;
+            font-size: 2.8rem;
+            margin-bottom: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        /* Achievement Cards */
+        .achievement-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .achievement-card {
+            background: #ffffff;
+            border: 3px solid #e9ecef;
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+        
+        .achievement-card.special {
+            border-color: #ffc107;
+        }
+        
+        .achievement-card.special:hover {
+            border-color: #ffc107;
+        }
+        
+        .achievement-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+        
+        .achievement-card.special .achievement-number {
+            color: #ffc107;
+        }
+        
+        .achievement-label {
+            font-size: 1.1rem;
+            color: #6c757d;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* About Content */
+        .about-content {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+            margin-bottom: 40px;
+        }
+        
+        .about-content p {
+            margin-bottom: 25px;
+        }
+        
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Projects */
+        .project-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-left: 6px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .project-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin: 0;
+            flex-grow: 1;
+        }
+        
+        .project-award {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .project-description {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #333;
+            border-left: 5px solid #667eea;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            color: #667eea;
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        
+        .contact-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .contact-item p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        /* Floating Navigation */
+        .floating-nav {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-dot.active {
+            background: #667eea;
+            transform: scale(1.5);
+        }
+        
+        .nav-dot:hover {
+            background: #667eea;
+            transform: scale(1.3);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .profile-img {
+                width: 140px;
+                height: 140px;
+                font-size: 3rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 280px;
+            }
+            
+            .section {
+                padding: 30px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .achievement-cards,
+            .skills-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .floating-nav {
+                display: none;
+            }
+            
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section id="home" class="section hero-section">
+            <div class="profile-img">GB</div>
+            <h1>Geo Benny</h1>
+            <p class="tagline">Electronics & Communication Engineering Student</p>
+            <p class="location">📍 Calicut, Kerala | IIIT Sricity</p>
+            
+            <div class="cta-buttons">
+                <button class="cta-btn" onclick="scrollToSection('contact')">Get In Touch</button>
+                <button class="cta-btn secondary" onclick="viewResume()">View Resume</button>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 class="section-title">About Me</h2>
+            
+            <!-- Achievement Cards -->
+            <div class="achievement-cards">
+                <div class="achievement-card">
+                    <div class="achievement-number">7.83</div>
+                    <div class="achievement-label">Current CGPA</div>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-number">4+</div>
+                    <div class="achievement-label">Projects Completed</div>
+                </div>
+                
+                <div class="achievement-card special">
+                    <div class="achievement-number">1</div>
+                    <div class="achievement-label">Hackathon Won</div>
+                </div>
+            </div>
+            
+            <div class="about-content">
+                <p>I am currently a B.Tech pre-final year student in Electronics & Communication Engineering at IIIT Sricity. My passion lies in the fascinating world of Data Science, AI/ML, and emerging technologies that are reshaping our digital landscape.</p>
+                
+                <p>Beyond my academic pursuits, I have a keen interest in e-commerce and financial markets. I am actively exploring the trading domain with aspirations of becoming a full-time trader in the future. This diverse interest portfolio allows me to approach problems from multiple perspectives, combining technical expertise with business acumen.</p>
+                
+                <p>I thrive on continuous learning and innovation, always seeking opportunities to apply cutting-edge technologies to solve real-world problems. My multilingual abilities and strong problem-solving skills enable me to collaborate effectively in diverse environments and tackle complex challenges with confidence.</p>
+            </div>
+
+            <h3 style="color: #2c3e50; margin-bottom: 30px; font-size: 2.2rem; text-align: center;">Skills & Expertise</h3>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>💻 Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Embedded C</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🤖 AI/ML & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Supervised Learning</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">Data Analysis</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🛠️ Development & Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Arduino</span>
+                        <span class="skill-tag">MIT App Inventor</span>
+                        <span class="skill-tag">Firebase</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🎯 Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Fast Learner</span>
+                        <span class="skill-tag">Leadership</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🌍 Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">English</span>
+                        <span class="skill-tag">Hindi</span>
+                        <span class="skill-tag">Tamil</span>
+                        <span class="skill-tag">Malayalam</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2 class="section-title">Featured Projects</h2>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">🏆 Smart Street Light Monitoring System</h3>
+                    <span class="project-award">Winner - Electroforge Hackathon</span>
+                </div>
+                <p class="project-description">
+                    Developed an intelligent street lighting system that optimizes energy consumption and provides real-time monitoring capabilities. The solution integrates IoT sensors with cloud-based analytics to automatically adjust lighting based on environmental conditions and pedestrian traffic patterns. This project demonstrates practical application of embedded systems for smart city infrastructure.
+                </p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Arduino</span>
+                    <span class="skill-tag">Embedded C</span>
+                    <span class="skill-tag">MIT App Inventor</span>
+                    <span class="skill-tag">Firebase</span>
+                    <span class="skill-tag">IoT Sensors</span>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">💰 E-commerce Dropshipping Business</h3>
+                </div>
+                <p class="project-description">
+                    Successfully launched and managed a dropshipping e-commerce business in the real Indian market, achieving remarkable results. Generated close to ₹2 lakh in sales within just 2 months through strategic product selection, effective digital marketing, and customer relationship management. This project demonstrated practical business acumen and understanding of market dynamics in the Indian e-commerce landscape.
+                </p>
+                <div class="skill-tags">
+                    <span class="skill-tag">E-commerce</span>
+                    <span class="skill-tag">Digital Marketing</span>
+                    <span class="skill-tag">Business Strategy</span>
+                    <span class="skill-tag">Market Analysis</span>
+                    <span class="skill-tag">Customer Management</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">🌡️ Smart Ventilation Control System</h3>
+                </div>
+                <p class="project-description">
+                    Developed an intelligent temperature control system that automatically adjusts ventilation based on environmental conditions. The system optimizes energy consumption by using smart sensors to monitor temperature and humidity, adjusting airflow accordingly to maintain optimal comfort while minimizing power wastage. Features low energy consumption design and remote monitoring capabilities.
+                </p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Arduino</span>
+                    <span class="skill-tag">Embedded C</span>
+                    <span class="skill-tag">MIT App Inventor</span>
+                    <span class="skill-tag">Firebase</span>
+                    <span class="skill-tag">Temperature Sensors</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">🌱 Smart Soil Irrigation System</h3>
+                </div>
+                <p class="project-description">
+                    Designed and implemented an automated irrigation system that uses soil moisture sensors and weather data to optimize water usage in agriculture. The system provides farmers with a mobile application interface for remote monitoring and control, contributing to sustainable farming practices and resource conservation.
+                </p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Arduino</span>
+                    <span class="skill-tag">Embedded C</span>
+                    <span class="skill-tag">MIT App Inventor</span>
+                    <span class="skill-tag">Firebase</span>
+                    <span class="skill-tag">Sensor Integration</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2 class="section-title">Get In Touch</h2>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem; color: #555;">
+                I'm always open to discussing opportunities, collaborations, or just having a conversation about technology and innovation!
+            </p>
+            
+            <div class="contact-grid">
+                <a href="mailto:geobenny17@gmail.com" class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p>geobenny17@gmail.com</p>
+                </a>
+                
+                <a href="tel:+917907924510" class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <h3>Phone</h3>
+                    <p>+91 79079 24510</p>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/geo-benny-679a1a289/" target="_blank" class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <h3>LinkedIn</h3>
+                    <p>Connect with me</p>
+                </a>
+                
+                <div class="contact-item" style="pointer-events: none;">
+                    <div class="contact-icon">📍</div>
+                    <h3>Location</h3>
+                    <p>Calicut, Kerala</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Floating Navigation -->
+    <div class="floating-nav">
+        <div class="nav-dot active" onclick="scrollToSection('home')" title="Home"></div>
+        <div class="nav-dot" onclick="scrollToSection('about')" title="About"></div>
+        <div class="nav-dot" onclick="scrollToSection('projects')" title="Projects"></div>
+        <div class="nav-dot" onclick="scrollToSection('contact')" title="Contact"></div>
+    </div>
+
+    <script>
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // Update active navigation dot based on scroll position
+        function updateActiveNav() {
+            const sections = ['home', 'about', 'projects', 'contact'];
+            const navDots = document.querySelectorAll('.nav-dot');
+            const scrollPosition = window.scrollY + 200;
+            
+            sections.forEach((sectionId, index) => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        navDots.forEach(dot => dot.classList.remove('active'));
+                        navDots[index].classList.add('active');
+                    }
+                }
+            });
+        }
+        
+        // Resume view/download function
+        function viewResume() {
+            alert('Resume will be available for download once uploaded!');
+            
+            // When you upload your resume, this will be updated to:
+            // const link = document.createElement('a');
+            // link.href = 'path/to/your/resume.pdf';
+            // link.download = 'Geo_Benny_Resume.pdf';
+            // link.target = '_blank';
+            // link.click();
+        }
+        
+        // Event listeners
+        window.addEventListener('scroll', updateActiveNav);
+        
+        // Add animation effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const achievementCards = document.querySelectorAll('.achievement-card');
+            achievementCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+            });
+            
+            const skillCategories = document.querySelectorAll('.skill-category');
+            skillCategories.forEach((category, index) => {
+                category.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
